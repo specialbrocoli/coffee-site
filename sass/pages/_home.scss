@@ -1,0 +1,154 @@
+//header
+.header{
+    &__nav{
+        display: flex;
+        padding: .6em 1em;
+        background-color: $white;
+        justify-content: space-between;
+    }
+
+    &__logo-container{
+        width: 140px;
+        height: 100px;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+        align-content: center;
+    }
+
+    &__logo{
+        object-fit: cover;
+    }
+
+    &__menu{
+        gap: 2em;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__link{
+        color: $text-brown;
+        text-decoration: none;
+    }
+
+    &__icon svg{
+        width: 20px;
+        height: 20px;
+        display: block;
+        fill: $icon-brown;
+        stroke: $icon-brown;
+    }
+}
+
+//hero
+.hero{
+    width: 100%;
+    display: flex;
+    height: 100dvh;
+    // position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+
+    &__title{
+        // position: absolute;
+        margin-top: -200px;
+        font-size: 13rem;
+        color: $milky-brown;
+    }
+
+    &__order{
+        margin-top: 50px;
+        @include card-layout();
+    }
+
+    &__blog{
+        margin-top: 450px;
+        @include card-layout();
+    }
+
+    &__coffee-container{
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        margin-left: 200px;
+        position: absolute;
+        margin-top: -360px;
+    }
+
+    &__coffee{
+        margin-top: -450px;
+        position: absolute;
+    }
+
+    &__book-table{
+        gap: 1em;
+        right: 3%;
+        bottom: 0;
+        width: 320px;
+        padding: .8em;
+        display: flex;
+        color: $white;
+        height: 320px;
+        position: absolute;
+        margin-bottom: -112px;
+        border-radius: .375em;
+        flex-direction: column;
+        justify-content: center;
+        background: $text-brown url('../../img/coffee-leaves.png') center no-repeat;
+        background-size: cover;
+    }
+
+    &__inputs{
+        gap: 0.5em;
+        width: 300px;
+        display: flex;
+
+        input{
+            width: 100%;
+            border: none;
+            padding: .8em;
+            border-radius: .375em;
+            background-color: #FFF9EF;
+        }
+    }
+
+    &__book-btns{
+        width: 200px;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+}
+
+//discover
+.discover{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    height: 100dvh;
+    // align-items: center;
+    // justify-content: center;
+    border: 1px solid #000;
+    background-color: $white;
+
+    &-sections{
+        display: flex;
+        // border: 1px solid #000;
+    }
+
+    &__left-side{
+         width: 50%;
+        padding: 2em;
+        border: 1px solid #000;
+        background-color: red;
+    }
+
+    &__right-side{
+        height: 500px;
+        width: 50%;
+        background: url('../../img/coffee.png') center no-repeat;
+    }
+}

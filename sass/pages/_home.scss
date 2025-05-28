@@ -1,8 +1,9 @@
-//header
+//header section
 .header{
     &__nav{
         display: flex;
         padding: .6em 1em;
+        align-items: center;
         background-color: $white;
         justify-content: space-between;
     }
@@ -14,6 +15,17 @@
         overflow: hidden;
         text-align: center;
         align-content: center;
+
+        // sm
+        @media (max-width: 640px) {
+            width: 120px;
+            // height: 50px;
+        }
+
+        // xs
+        @media (max-width: 320px) {
+            width: 100px;
+        }
     }
 
     &__logo{
@@ -26,129 +38,461 @@
         list-style: none;
         align-items: center;
         justify-content: center;
+
+        // lg
+        @media (max-width: 1024px) {
+            display: none;
+        }
     }
 
     &__link{
         color: $text-brown;
+        font-size: $size-base;
         text-decoration: none;
     }
 
     &__icon svg{
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         display: block;
         fill: $icon-brown;
         stroke: $icon-brown;
-    }
-}
 
-//hero
-.hero{
-    width: 100%;
-    display: flex;
-    height: 100dvh;
-    // position: absolute;
-    align-items: center;
-    justify-content: center;
-    background-color: $white;
-
-    &__title{
-        // position: absolute;
-        margin-top: -200px;
-        font-size: 13rem;
-        color: $milky-brown;
-    }
-
-    &__order{
-        margin-top: 50px;
-        @include card-layout();
-    }
-
-    &__blog{
-        margin-top: 450px;
-        @include card-layout();
-    }
-
-    &__coffee-container{
-        width: 500px;
-        height: 500px;
-        overflow: hidden;
-        margin-left: 200px;
-        position: absolute;
-        margin-top: -360px;
-    }
-
-    &__coffee{
-        margin-top: -450px;
-        position: absolute;
-    }
-
-    &__book-table{
-        gap: 1em;
-        right: 3%;
-        bottom: 0;
-        width: 320px;
-        padding: .8em;
-        display: flex;
-        color: $white;
-        height: 320px;
-        position: absolute;
-        margin-bottom: -112px;
-        border-radius: .375em;
-        flex-direction: column;
-        justify-content: center;
-        background: $text-brown url('../../img/coffee-leaves.png') center no-repeat;
-        background-size: cover;
-    }
-
-    &__inputs{
-        gap: 0.5em;
-        width: 300px;
-        display: flex;
-
-        input{
-            width: 100%;
-            border: none;
-            padding: .8em;
-            border-radius: .375em;
-            background-color: #FFF9EF;
+        // lg
+        @media (max-width: 1024px) {
+            display: none;
         }
     }
 
-    &__book-btns{
-        width: 200px;
-        display: flex;
-        margin: 0 auto;
-        justify-content: space-between;
+    &__bars{
+        width: 40px;
+        height: 40px;
+        display: none;
+        color: $wood-brown;
+
+        // lg
+        @media (max-width: 1024px) {
+            display: block;
+        }
+
+        // xs
+        @media (max-width: 320px) {
+            width: 35px;
+            height: 35px;
+        }
     }
 }
 
-//discover
+//discover section
 .discover{
-    flex: 1;
-    width: 100%;
-    display: flex;
-    height: 100dvh;
-    // align-items: center;
-    // justify-content: center;
-    border: 1px solid #000;
+    min-height: 100dvh;
+
+    @media (max-width: 1024px) {
+        height: 150dvh;
+    }
+
+    &__sections{
+        height: 100%;
+        display: flex;
+
+        // lg
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+    }
+
+    //discover left section
+    &__section-left{
+        // height: 100%;
+        width: 50%;
+        position: relative;
+        background: url('../../img/coffee.png') center no-repeat;
+        background-size: cover;
+
+        h4{
+            top: 0;
+            left: 0;
+            padding: 1em;
+            color: $white;
+            position: absolute;
+            max-width: fit-content;
+            background-color: $milky-brown;
+        }
+
+        // lg
+        @media (max-width: 1024px) {
+            height: 50%;
+            width: 100%;
+        }
+    }
+
+    //discover right section
+    &__section-right{
+        height: 50%;
+        width: 50%;
+        //discover section content
+        .discover__content{
+            padding: 2em;
+
+            p{
+                max-width: 45ch;
+            }
+
+            // lg
+        @media (max-width: 1024px) {
+            width: 100vw;
+            text-align: center;
+            align-content: center;
+
+            p{
+                margin: 0 auto;
+            }
+        }
+        }
+
+        //section serves
+        .discover__served{
+            height: 50%;
+            text-align: center;
+
+            &-options{
+                display: flex;
+                justify-content: space-evenly;
+
+                .option{
+                    @include flex-layout(column);
+                }
+
+                .option__wrapper{
+                    width: 65px;
+                    height: 65px;
+                }
+            }
+
+            // lg
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+    }
+}
+
+//articles section
+.articles{
+    min-height: 50dvh;
+    @include flex-layout;
     background-color: $white;
 
-    &-sections{
+
+    &-items{
+        gap: 8em;
+        padding: 1em;
+        height: 100%;
         display: flex;
-        // border: 1px solid #000;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
     }
 
-    &__left-side{
-        width: 50%;
-        padding: 2em;
-        border: 1px solid #000;
-        background-color: red;
-    }
+    &__article{
+        width: 200px;
+        display: grid;
+        grid-row: span 4;
+        text-align: center;
+        align-content: center;
+        grid-template-rows: subgrid;
 
-    &__right-side{
-        height: 500px;
-        width: 50%;
+
+    }
+    .article__img-wrapper{
+        width: 65px;
+        height: 65px;
+        margin: 0 auto;
+        max-width: fit-content;
+    }
+}
+
+//services section
+.services{
+    min-height: 100vh;
+    text-align: center;
+
+    .services-offers{
+        gap: 1em;
+        padding: 3em;
+        display: flex;
+        margin-top: 7em;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: $white;
+
+        .service{
+            width: 300px;
+            height: 300px;
+            position: relative;
+
+            h4{
+                left: 20%;
+                bottom: 0;
+                padding: 1em;
+                position: absolute;
+                color: $wood-brown;
+                background-color: rgba(255, 255, 255, .75);
+
+                // xs
+                @media (max-width: 475px) {
+
+                }
+            }
+        }
+    }
+}
+
+//teams section
+.team{
+    height: 100vh;
+    text-align: center;
+    // background-color: red;
+
+    .teams{
+        height: 75%;
+        display: flex;
+        flex-wrap: wrap;
+
+        //catering team left
+        .catering-team{
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            align-content: center;
+            background: url('../../img/catering-team.png') center no-repeat;
+            background-size: cover;
+
+            // lg
+            @media (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+
+        //other teams right
+        .other-teams{
+            width: 50%;
+            height: 100%;
+
+            .managers-team{
+                height: 33.333%;
+                position: relative;
+                background: url('../../img/managers-team.png') center no-repeat;
+                background-size: cover;
+            }
+            .media-team{
+                height: 33.333%;
+                position: relative;
+                background: url('../../img/media-team.png') center no-repeat;
+                background-size: cover;
+            }
+            .research-team{
+                height: 33.333%;
+                position: relative;
+                background: url('../../img/research-team.png') center no-repeat;
+                background-size: cover;
+            }
+
+            // lg
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+    }
+}
+
+//partners section
+.partners{
+    min-height: 100dvh;
+    text-align: center;
+
+    .partnered-products{
+        gap: 2.5em;
+        padding: 3em;
+        display: grid;
+        margin-top: 6em;
+        min-height: 60dvh;
+        place-items: center;
+        background-color: $white;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+
+        .product{
+            width: 260px;
+            display: grid;
+            grid-row: span 4;
+            border-radius: .375em;
+            background-color: #fff;
+            grid-template-rows: subgrid;
+
+            &-title{
+                color: $wood-brown;
+            }
+
+            &-desc{
+                color: #813A1AD4;
+            }
+
+            &-link{
+                color: #813A1A;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+//testimonials section
+.testimonials{
+    text-align: center;
+    min-height: 100dvh;
+    z-index: -2;
+
+
+    .clients{
+        margin-top: 6em;
+        position: relative;
         background: url('../../img/coffee.png') center no-repeat;
+        background-size: cover;
+
+        &::before{
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(255, 255, 255, .4);
+        }
+    }
+
+    .client-1{
+        display: flex;
+
+        // lg
+        .client-wrapper{
+            width: 50%;
+            height: 400px;
+            background: url('../../img/user-1.png') center no-repeat;
+            background-size: cover;
+        }
+
+        .client-testimony{
+            width: 50%;
+            z-index: 2;
+            @include flex-layout(column);
+
+            p{
+                margin: 0 auto;
+                max-width: 60ch;
+            }
+
+            .client-line{
+                margin-top: 2.5em;
+                list-style: none;
+                padding-left:   15em;
+                border: 1.2px solid #813A1A;
+            }
+
+            .client-socials{
+                display: flex;
+                width: 150px;
+                margin-top: 2em;
+                justify-content: space-between;
+            }
+
+            .client-social-btn{
+                width: 50px;
+                height: 50px;
+                fill: #813A1A;
+            }
+        }
+
+         @media (max-width: 1024px) {
+            flex-direction: column;
+
+            .client-wrapper, .client-testimony{
+                width: 100%;
+            }
+
+        }
+    }
+
+     .testimonies-btn{
+            margin-top: 4em;
+        }
+}
+
+
+//footer section
+.footer{
+    display: grid;
+    min-height: 45dvh;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+
+    .footer-contact, .footer-logo{
+        display: flex;
+        background-color: $milky-brown;
+    }
+
+    .footer-contact{
+        padding: 1em;
+        flex-direction: column;
+    }
+
+    .footer-newsletter,
+    .footer-links,
+    .footer-socials{
+        color: $white;
+        @include flex-layout(column);
+        background-color: rgba($color: #000000, $alpha: 1.0);
+    }
+
+    .footer-newsletter{
+        p{
+            max-width: 30ch;
+        }
+
+        [type="email"]{
+            border: none;
+            padding: .5em;
+            margin-top: 2em;
+            border-radius: .375em;
+            background-color: $milky-brown;
+            &::placeholder{
+                color: $wood-brown;
+            }
+        }
+    }
+
+    .footer-menu{
+        padding: 0;
+        list-style: none;
+
+         > * + * {
+            margin-top: .5em;
+         }
+
+        .footer-link{
+            color: $white;
+            text-decoration: none;
+        }
+    }
+
+    .footer-socials{
+        > * + * {
+            margin-top: 3em;
+        }
+
+        .footer-social-btn{
+            width: 30px;
+            height: 30px;
+            fill: $white;
+            margin-right: .8em;
+        }
     }
 }
